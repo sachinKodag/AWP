@@ -1,0 +1,19 @@
+html, body {
+    margin: 0px;
+    background-color: cornflowerblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h {
+    color: white;
+}
+
+#login {
+    width: 50vh;
+    padding-left: 75vh;
+    margin: 60px;
+}
+
+div input {
+    margin: 5px;
+}

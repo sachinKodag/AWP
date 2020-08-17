@@ -1,0 +1,308 @@
+<html>
+	<head>
+		<style>
+			.valid{
+					color:red;
+						
+				}
+
+			form#formid {
+				margin-left: 440px;
+			}
+
+			.formdiv {
+				text-align: center;
+				background: darkslategrey;
+				padding: 90px;
+				
+			}
+
+			td {
+				color: white;
+					}
+		div#jaga {
+			margin-left: 431px;
+		}
+		button {
+		   height: 60px;
+			border-style: none;
+			background: dimgrey;
+			width: 130px;
+			margin: 30px;
+			border-radius: 40px;
+			border-style: dotted;
+			border-color: lightyellow;
+		}
+
+		table{
+				border-style: dotted;
+		}
+
+		.sanju {
+			padding: 100px;
+			color: white;
+			font-size: 77px;
+		}
+		</style>
+
+
+			<script>
+				function insert()
+				{
+					
+					var name = document.getElementById("nameid").value; //Getting the form values
+					var id = document.getElementById("idid").value;
+					var sal = document.getElementById("salid").value;
+					var deptno = document.getElementById("deptid").value;
+					var nametest = /^[a-zA-Z]{2,80}$/;
+					var idtest = /^[0-9]{1,3}$/;
+					var saltest =/^[0-9]{1,7}$/;
+					var flag=true;
+					if( !nametest.test(name) )
+					{	
+						document.getElementById("namespan").innerText="* Enter correct name ...!  ";
+						flag=false;
+					}
+					else
+					{
+						document.getElementById("namespan").innerText="";
+						flag=true;
+					}
+
+					if( !idtest.test(id)) 
+					{
+						document.getElementById("idspan").innerText="* Enter correct id ...!  ";
+						flag=false;
+					}
+					else if(flag==true)
+					{
+						document.getElementById("idspan").innerText="";
+						flag=true;
+					}
+					if(!saltest.test(sal) )
+					{
+						document.getElementById("salspan").innerText="* Enter correct sal ...!  ";
+						flag=false;
+					}
+					else if(flag==true)
+					{
+						document.getElementById("salspan").innerText="";
+						flag=true;
+					}
+					if( flag==true )
+					{
+						var obj={
+									ename : name,
+									eid   : id,
+									esal  : sal,
+									edept : deptno,
+									method : "insert"
+								}; // Java script Object 
+						var jsonobj=JSON.stringify(obj); // JSON object 
+				
+						var xmlhttp = new XMLHttpRequest();//created the object of ajax to send request to the server
+						xmlhttp.onreadystatechange=function(){
+							if(this.readyState==4 && this.status==200)//if state == 4 means response is ready and staus Ok.
+							{
+								document.getElementById("jaga").innerHTML=this.responseText; //responstext ==> response from the server
+							}
+						};
+
+						xmlhttp.open("GET","fullexamserver.php?x="+jsonobj,true);  //  a= 20 x= "tryryt" x=s;
+
+						xmlhttp.send();
+						
+						
+						document.getElementById("formid").reset();
+					} // end of if block
+				} // end of function insert 
+				function update()
+				{}
+				function select()
+				{
+					var name = document.getElementById("nameid").value; //Getting the form values
+					var id = document.getElementById("idid").value;
+					var sal = document.getElementById("salid").value;
+					var deptno = document.getElementById("deptid").value;
+					
+					var obj={
+									ename : name,
+									eid   : id,
+									esal  : sal,
+									edept : deptno,
+									method : "select"
+								}; // Java script Object 
+						var jsonobj=JSON.stringify(obj); // JSON object 
+						var xmlhttp = new XMLHttpRequest();//created the object of ajax to send request to the server
+						xmlhttp.onreadystatechange=function(){
+							if(this.readyState==4 && this.status==200)//if state == 4 means response is ready and staus Ok.
+							{
+								var obj=JSON.parse(this.responseText);
+					
+								var table="<table cellpadding='10' border= 10 > ";
+								for(var i=0;i<obj.length;i++)
+								{
+										table+="<tr>";
+										var kk = obj[i];
+										for (var ll in kk)
+										{
+												table+="<td>"+kk[ll]+"</td>";
+												//document.getElementById("jaga").innerHTML+=kk[ll];
+										}
+										table+="</tr>";
+								}
+								table+="</table>";
+								document.getElementById("jaga").innerHTML=table;
+							}
+						};
+						xmlhttp.open("GET","fullexamserver.php?x="+jsonobj,true);
+						xmlhttp.send();
+				}
+				function showall()
+				{
+						var obj={
+								method : "showall"
+						};
+						var jsonobj=JSON.stringify(obj);
+						var xmlhttp = new XMLHttpRequest();//created the object of ajax to send request to the server
+						xmlhttp.onreadystatechange=function(){
+							if(this.readyState==4 && this.status==200)//if state == 4 means response is ready and staus Ok.
+							{
+								var obj=JSON.parse(this.responseText);
+								
+								var table="<table cellpadding='10' border= 10 > ";
+								for(var i=0;i<obj.length;i++)
+								{
+										table+="<tr>";
+										var kk = obj[i];
+										for (var ll in kk)
+										{
+												table+="<td>"+kk[ll]+"</td>";
+												//document.getElementById("jaga").innerHTML+=kk[ll];
+										}
+										table+="</tr>";
+								}
+								table+="</table>";
+								document.getElementById("jaga").innerHTML=table;
+							}
+						};
+
+						
+						
+						xmlhttp.open("GET","fullexamserver.php?x="+jsonobj,true);
+
+						xmlhttp.send();
+
+				}
+				function delete1()
+				{
+					var name = document.getElementById("nameid").value; //Getting the form values
+					var id = document.getElementById("idid").value;
+					var sal = document.getElementById("salid").value;
+					var deptno = document.getElementById("deptid").value;	
+				
+					var obj={
+									ename : name,
+									eid   : id,
+									esal  : sal,
+									edept : deptno,
+									method : "delete"
+								}; // Java script Object 
+						var jsonobj=JSON.stringify(obj); // JSON object 
+						var xmlhttp = new XMLHttpRequest();//created the object of ajax to send request to the server
+						xmlhttp.onreadystatechange=function(){
+							if(this.readyState==4 && this.status==200)//if state == 4 means response is ready and staus Ok.
+							{
+								document.getElementById("jaga").innerHTML=this.responseText; //responstext ==> response from the server
+							}
+						};
+						xmlhttp.open("GET","fullexamserver.php?x="+jsonobj,true);
+						xmlhttp.send();
+				}
+				function update()
+				{
+					var name = document.getElementById("nameid").value; //Getting the form values
+					var id = document.getElementById("idid").value;
+					var sal = document.getElementById("salid").value;
+					var deptno = document.getElementById("deptid").value;					
+					var obj={
+									ename : name,
+									eid   : id,
+									esal  : sal,
+									edept : deptno,
+									method : "update"
+								}; // Java script Object 
+						var jsonobj=JSON.stringify(obj); // JSON object 
+						var xmlhttp = new XMLHttpRequest();//created the object of ajax to send request to the server
+						xmlhttp.onreadystatechange=function(){
+							if(this.readyState==4 && this.status==200)//if state == 4 means response is ready and staus Ok.
+							{
+								document.getElementById("jaga").innerHTML=this.responseText; //responstext ==> response from the server
+							}
+						};
+						xmlhttp.open("GET","fullexamserver.php?x="+jsonobj,true);
+						xmlhttp.send();
+				}
+		</script>
+	
+	</head>
+	<body>
+		<div class="formdiv">
+			<form method="get" id="formid" action=" " >
+				<table cellpadding="10" cellspacing="10" border="10px"  >
+				<tr>
+					<td>Name : </td>
+					<td>
+						<input type="text" id="nameid" placeholder="Enter the name">
+					</td>
+					<td>
+						<span class="valid" id="namespan"></span> 
+					</td>
+					
+				</tr>
+				
+				<tr>
+					<td>Id : </td>
+					<td>
+						<input type="text" id="idid" placeholder="Enter the ID " >
+					</td>
+					<td>
+						<span class="valid" id="idspan"></span> 
+					</td>
+				</tr>
+				<tr>
+					<td>Salary : </td>
+					<td>
+						<input type="text" id="salid" placeholder="Enter the Salary ">
+					</td>
+					<td>
+						<span class="valid" id="salspan"></span> 
+					</td>
+				</tr>
+				<tr>
+					<td>Dept no : </td>
+					<td>
+						<input type="text" id="deptid" placeholder="Enter the dept no">
+					</td>
+					
+				</tr>
+			</table>
+			<br><br>		
+		</form>
+	
+			<button onclick="insert()" name="insert">INSERT </button>
+			<button onclick="select()" name="select">SELECT </button>
+			<button onclick="update()" name="update">UPDATE </button>
+			<button onclick="delete1()" name="delete">DELETE </button>
+			
+			<button onclick="showall()" name="show">SHOW ALL </button><br><br><br><br>
+		<div id="jaga"></div>
+
+
+	<div class="sanju">&copy;copyright madhuri</div>
+	</div> <!-- end of div -->
+
+
+	</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY1</title>
+    <link rel="stylesheet" href="DAY1.css">
+
+    <style>
+        .internal {
+            color: crimson;
+            font-family: cursive;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Basic tags -->
+    <h1>This is head tag 1</h1>
+    <h4>This is head tag 4</h4>
+    <h6>This is head tag 6 you can not give more than 6 head</h6>
+    <h7>this is head 7 from this tag head will not recognize by broweser</h7>
+    <p>This tag is used for paragraph. Inside this tag all line will print in single paragraph, Even though you gave
+        spaceing between words browser will not detect it.</p>
+    <a href="https://www.google.co.in/">This anchor tag used for link to other website</a>
+    <ol>
+        <li>This is order list</li>
+        <li>list will create number wise in ascending order.</li>
+    </ol>
+    <ul>
+        <li>This in unorder list.</li>
+        <li>Element will not came in order.</li>
+    </ul>
+    <img src="img.jpg" alt="Avengers" style="height: 400px; width: 600px; object-fit: cover;">
+
+    <!-- typograhgy -->
+    <div style="background-color: aquamarine; font-size: 25px;">
+        <p>This is paragraph let's make it more beatuiful using inline CSS</p>
+    </div>
+    <div class="internal">
+        <p>This is another paragraph, let's change it using internal css</p>
+    </div>
+    <div id="external">
+        <ul>
+            <li>We can change style of unorder list also</li>
+            <li>Let's change it using external CSS</li>
+        </ul>
+    </div>
+
+    <!-- FLEXBOX -->
+    <div style="display: flex;
+    background-color: darkgray;">
+        <div style="display: flex; flex: 1; align-items: center;">
+            <p>First Div</p>
+        </div>
+        <div style="display: flex; flex: 1; align-items: center;">
+            <p>Second div</p>
+        </div>
+        <div style="display: flex; flex: 1;">
+            <p>Third Div</p>
+        </div>
+    </div>
+    <br><br><br>
+
+    <div style="display: flex; background-color: darkgreen; height: 300px;">
+        <div
+            style="display: flex; flex: 1; justify-content: center; align-items: center; background-color: darkturquoise;">
+            <p>1</p>
+        </div>
+        <div style="display: flex; flex: 1; justify-content: center; background-color: darkolivegreen;">
+            <p>2</p>
+        </div>
+        <div style="display: flex; flex: 1; align-items: center; background-color: darkkhaki;">
+            <p>3</p>
+        </div>
+    </div>
+    <br><br><br>
+
+    <div style="display: flex; background: center;">
+        <div style="display: flex; flex: 2; background-color: gold;">
+            <p>1</p>
+        </div>
+        <div style="display:flex; flex:1; background-color: lightcoral;">
+            <P>2</P>
+        </div>
+    </div>
+    <br><br><br>
+
+    <div style="background-color: black;">
+        <div style="display: flex;">
+            <div style="flex: 1; background-color: lawngreen;">
+                <img src="img.jpg" alt="Avengers" style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div style="flex: 1; background-color: green;">
+                <img src="img.jpg" alt="Avengers" style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div style="flex: 1; background-color: brown;">
+                <img src="img.jpg" alt="Avengers" style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div style="flex: 1; background-color: blue;">
+                <img src="img.jpg" alt="Avengers" style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+html,body {
+            margin: 0px;
+            background-color: rgb(172, 169, 169);
+        }
+
+#imgdiv {
+    width: 50vw;
+    height: 400px;
+    margin: 8px;
+}
+
+#img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#likeId {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+    align-items: center;
+}
+
+#like {
+    margin: 5px;
+    border-style: none;
+}
+
+#likeId li {
+    list-style-type: none;
+}
+
+#info {
+    width: 90vh;
+    padding: 10px;
+    display: flex;
+    flex: 2;
+    border-radius: 30px;
+    border-width: thin;
+    outline: none;
+} 
+
+#infotop {
+    width: 0vh;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 30px;
+    display: flex;
+    flex: 2;
+    border-radius: 20px;
+    border-width: thin;
+    outline: none;
+} 
+
+
+#cmtbtn {
+    border-radius: 2px;
+    display: flex;
+    align-content: flex-end;
+    background-color: white;
+    padding-top: 10px;
+    margin-right: 80px;
+    margin-left: 10px;
+    border-width: thin;
+}
+
+#post {
+    display: flex; 
+    align-items: center; 
+    flex-direction: column;
+    margin-top: 6px;
+    background-color: white;
+}
+
+#comment {
+    display: flex;
+    flex-direction: column;
+    width: 989;
+    padding: 10px;
+    justify-content: space-between;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+#commenttop {
+    display: flex;
+    width: 989;
+    padding: 10px;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+#name {
+    padding-top: 10px;
+    padding-right: 1250px;
+}

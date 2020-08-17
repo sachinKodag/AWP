@@ -1,0 +1,9 @@
+html, body {
+    margin: 0px;
+}
+
+#external {
+    background-color: cornflowerblue;
+    font-weight: bolder;
+    font-size: 30px;
+}

@@ -1,0 +1,26 @@
+<title>appendchild</title>
+
+<body>
+    <ul id="mylist">
+        <li>Banana</li>
+    </ul>
+</body>
+
+<script type="text/javascript">
+    var mylist = document.getElementById("mylist");
+
+    var newList = document.createElement("li");
+    newList.textContent = "Orange";
+
+    mylist.appendChild(newList);
+
+
+    var fruitlist = ["apple", "grapes", "Mango"];
+
+    for (var fruit of fruitlist) {
+        var nList = document.createElement("li");
+        nList.textContent = fruit;
+
+        mylist.appendChild(nList);
+    }
+</script>

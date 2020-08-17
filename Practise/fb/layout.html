@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BasicLayout</title>
+    <script src="layout.js"></script>
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <div style="background-color: rgb(90, 90, 201);
+    padding: 5px;">
+        <ul style="display: flex;
+        list-style-type: none;
+        justify-content: space-between;
+        color: white;">
+            <img src="newspaper.svg" alt="Home" style="height: 22px;">
+            <img src="user-friends.svg" alt="Home" style="height: 22px;">
+            <img src="facebook-messenger-brands.svg" alt="Home" style="height: 22px;">
+            <img src="bell-solid.svg" alt="Home" style="height: 22px;">
+            <img src="search-solid.svg" alt="Home" style="height: 22px;">
+            <img src="bars-solid.svg" alt="Home" style="height: 22px; padding-right: 20px;">
+        </ul>
+    </div>
+
+    <div id="commenttop" style="margin-top: 2px;">
+        <img src="user-circle-solid.svg" alt="Profile Picture" style="height: 60px; padding-left: 100px;">
+        <div style="display: flex; flex-direction: row; flex: 3; padding-left: 10px; padding-right: 10%;">
+            <input id="infotop" type="text" size="400" placeholder="Write something here...">
+        </div>
+    </div>
+
+
+    <div id="post">
+        <div id="imgdiv">
+            <img id="img" src="img.jpg" alt="Avenger">
+        </div>
+        <div id="likeId">
+
+            <li id="like" onclick="like()" style="padding-left: 160px;"> <img src="thumbs-up.svg"
+                    style="height: 20px; margin-top: 5px;">
+                Like</li>
+            <li style="padding-top: 5px;"> <img src="comment-alt-regular.svg" style="height: 20px;"> Comment</li>
+            <li style="padding-top: 5px; padding-right: 160px;"><img src="share-solid.svg" style="height: 20px;"> Share
+            </li>
+        </div>
+    </div>
+
+    <div id="comment">
+        <div style="display: flex; flex-direction: row; flex: 3; padding-left: 20%;">
+            <input id="info" type="text" size="400" placeholder="Write a comment...">
+            <button id="cmtbtn" onclick="fun()">Post</button>
+        </div>
+
+        <div id="newcomment">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
